@@ -5,6 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 import com.atech.core.data.local.common.AuditFields
 import com.atech.core.data.local.common.IconsFields
 import com.atech.core.utils.TableNames
@@ -27,7 +28,7 @@ import com.atech.core.utils.TableNames
 data class ExpenseEntity(
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Long,
     @ColumnInfo(name = "expense_book_name")
     val expenseBookName: String,
     @ColumnInfo(name = "budget")
@@ -49,7 +50,7 @@ data class ExpenseEntity(
 data class CategoryEntity(
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Long,
     @ColumnInfo(name = "category_name")
     val categoryName: String,
     @Embedded
@@ -65,7 +66,7 @@ data class CategoryEntity(
 data class PaymentTypeEntity(
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Long,
     @ColumnInfo(name = "payment_type_name")
     val paymentTypeName: String,
     @Embedded
@@ -96,11 +97,16 @@ data class PaymentTypeEntity(
             onDelete = androidx.room.ForeignKey.SET_NULL
         )
     ],
+    indices = [
+        Index("expense_book_id"),
+        Index("category_id"),
+        Index("payment_type_id")
+    ]
 )
 data class ExpenseEntryEntity(
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Long,
     @ColumnInfo(name = "expense_book_id")
     val expenseBookId: Int,
     @ColumnInfo(name = "amount")
@@ -115,4 +121,21 @@ data class ExpenseEntryEntity(
     val timestamp: Long,
     @Embedded
     val auditFields: AuditFields
+)
+
+data class ExpenseEntryWithDetails(
+    @Embedded
+    val expenseEntry: ExpenseEntryEntity,
+
+    @Relation(
+        parentColumn = "category_id",
+        entityColumn = "id"
+    )
+    val category: CategoryEntity?,
+
+    @Relation(
+        parentColumn = "payment_type_id",
+        entityColumn = "id"
+    )
+    val paymentType: PaymentTypeEntity?
 )
