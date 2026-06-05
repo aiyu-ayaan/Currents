@@ -1,5 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -27,4 +30,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+
+
+    // Hilt
+    implementation(libs.bundles.hilt.core)
+    ksp(libs.hilt.compiler)
+
+    // room
+    implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
 }
