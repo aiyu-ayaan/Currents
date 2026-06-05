@@ -24,3 +24,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Currents"
 include(":currents")
+include(":core")
+include(":ui")
