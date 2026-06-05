@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.atech.currents.ui.screens.login.LoginScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
@@ -33,7 +34,7 @@ fun CurrentsAppNavigationEntry(
         startDestination = startDestination
     ) {
         composable<LogIn>{
-            // to navigate use navController.navigate(Current)
+            LoginScreen()
         }
 
         navigation<Currents>(startDestination = Dashboard) {
