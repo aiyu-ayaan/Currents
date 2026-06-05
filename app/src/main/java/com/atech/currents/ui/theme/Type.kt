@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
 // Lumina Light Typography
-val LuminaLightTypography = Typography(
+val LightTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W600,
@@ -68,7 +68,7 @@ val LuminaLightTypography = Typography(
 )
 
 // Lumina Tech Utility Typography (Dark Theme)
-val LuminaDarkTypography = Typography(
+val DarkTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W800,
@@ -125,4 +125,4 @@ val LuminaDarkTypography = Typography(
 )
 
 // Default / fallback typography
-val Typography = LuminaLightTypography
+val Typography = LightTypography
