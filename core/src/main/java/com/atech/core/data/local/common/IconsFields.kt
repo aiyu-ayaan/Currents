@@ -4,9 +4,9 @@ import androidx.room.ColumnInfo
 
 data class IconsFields(
     @ColumnInfo(name = "icon_name")
-    private val iconName : String,
+     val iconName : String,
     @ColumnInfo(name = "icon_color")
-    private var iconColor : Long,
+     var iconColor : Long,
     @ColumnInfo(name = "brand_color")
-    private val brandColor : Long
+     val brandColor : Long
 )

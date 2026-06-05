@@ -9,15 +9,15 @@ plugins {
 android {
     namespace = "com.atech.currents"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
+        version = release(37) {
+//            minorApiLevel = 1
         }
     }
 
     defaultConfig {
         applicationId = "com.atech.currents"
         minSdk = 30
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -58,6 +58,10 @@ dependencies {
 
     // Navigation
     implementation(libs.bundles.navigation)
+}
 
-
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.0-Beta1")
+    }
 }

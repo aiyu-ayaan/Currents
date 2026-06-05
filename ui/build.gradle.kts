@@ -9,8 +9,8 @@ plugins {
 android {
     namespace = "com.atech.ui"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
+        version = release(37) {
+//            minorApiLevel = 1
         }
     }
 
@@ -43,4 +43,10 @@ dependencies {
 
     // Navigation
     implementation(libs.bundles.navigation)
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.0-Beta1")
+    }
 }

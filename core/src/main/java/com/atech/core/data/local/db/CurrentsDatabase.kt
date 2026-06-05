@@ -3,6 +3,7 @@ package com.atech.core.data.local.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.atech.core.data.local.expense.CategoryEntity
+import com.atech.core.data.local.expense.ExpenseDao
 import com.atech.core.data.local.expense.ExpenseEntity
 import com.atech.core.data.local.expense.ExpenseEntryEntity
 import com.atech.core.data.local.expense.PaymentTypeEntity
@@ -18,4 +19,6 @@ import com.atech.core.data.local.expense.PaymentTypeEntity
     version = 1,
     exportSchema = true
 )
-abstract class CurrentsDatabase : RoomDatabase()
+abstract class CurrentsDatabase : RoomDatabase(){
+    abstract val expenseDao: ExpenseDao
+}
