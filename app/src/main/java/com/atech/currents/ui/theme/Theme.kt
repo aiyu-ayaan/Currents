@@ -12,32 +12,86 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = LuminaDarkPrimary,
+    onPrimary = LuminaDarkOnPrimary,
+    primaryContainer = LuminaDarkPrimaryContainer,
+    onPrimaryContainer = LuminaDarkOnPrimaryContainer,
+    inversePrimary = LuminaDarkInversePrimary,
+    secondary = LuminaDarkSecondary,
+    onSecondary = LuminaDarkOnSecondary,
+    secondaryContainer = LuminaDarkSecondaryContainer,
+    onSecondaryContainer = LuminaDarkOnSecondaryContainer,
+    tertiary = LuminaDarkTertiary,
+    onTertiary = LuminaDarkOnTertiary,
+    tertiaryContainer = LuminaDarkTertiaryContainer,
+    onTertiaryContainer = LuminaDarkOnTertiaryContainer,
+    background = LuminaDarkBackground,
+    onBackground = LuminaDarkOnBackground,
+    surface = LuminaDarkSurface,
+    onSurface = LuminaDarkOnSurface,
+    surfaceVariant = LuminaDarkSurfaceVariant,
+    onSurfaceVariant = LuminaDarkOnSurfaceVariant,
+    outline = LuminaDarkOutline,
+    outlineVariant = LuminaDarkOutlineVariant,
+    inverseSurface = LuminaDarkInverseSurface,
+    inverseOnSurface = LuminaDarkInverseOnSurface,
+    surfaceTint = LuminaDarkSurfaceTint,
+    error = LuminaDarkError,
+    onError = LuminaDarkOnError,
+    errorContainer = LuminaDarkErrorContainer,
+    onErrorContainer = LuminaDarkOnErrorContainer,
+    surfaceDim = LuminaDarkSurfaceDim,
+    surfaceBright = LuminaDarkSurfaceBright,
+    surfaceContainerLowest = LuminaDarkSurfaceContainerLowest,
+    surfaceContainerLow = LuminaDarkSurfaceContainerLow,
+    surfaceContainer = LuminaDarkSurfaceContainer,
+    surfaceContainerHigh = LuminaDarkSurfaceContainerHigh,
+    surfaceContainerHighest = LuminaDarkSurfaceContainerHighest
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = LuminaLightPrimary,
+    onPrimary = LuminaLightOnPrimary,
+    primaryContainer = LuminaLightPrimaryContainer,
+    onPrimaryContainer = LuminaLightOnPrimaryContainer,
+    inversePrimary = LuminaLightInversePrimary,
+    secondary = LuminaLightSecondary,
+    onSecondary = LuminaLightOnSecondary,
+    secondaryContainer = LuminaLightSecondaryContainer,
+    onSecondaryContainer = LuminaLightOnSecondaryContainer,
+    tertiary = LuminaLightTertiary,
+    onTertiary = LuminaLightOnTertiary,
+    tertiaryContainer = LuminaLightTertiaryContainer,
+    onTertiaryContainer = LuminaLightOnTertiaryContainer,
+    background = LuminaLightBackground,
+    onBackground = LuminaLightOnBackground,
+    surface = LuminaLightSurface,
+    onSurface = LuminaLightOnSurface,
+    surfaceVariant = LuminaLightSurfaceVariant,
+    onSurfaceVariant = LuminaLightOnSurfaceVariant,
+    outline = LuminaLightOutline,
+    outlineVariant = LuminaLightOutlineVariant,
+    inverseSurface = LuminaLightInverseSurface,
+    inverseOnSurface = LuminaLightInverseOnSurface,
+    surfaceTint = LuminaLightSurfaceTint,
+    error = LuminaLightError,
+    onError = LuminaLightOnError,
+    errorContainer = LuminaLightErrorContainer,
+    onErrorContainer = LuminaLightOnErrorContainer,
+    surfaceDim = LuminaLightSurfaceDim,
+    surfaceBright = LuminaLightSurfaceBright,
+    surfaceContainerLowest = LuminaLightSurfaceContainerLowest,
+    surfaceContainerLow = LuminaLightSurfaceContainerLow,
+    surfaceContainer = LuminaLightSurfaceContainer,
+    surfaceContainerHigh = LuminaLightSurfaceContainerHigh,
+    surfaceContainerHighest = LuminaLightSurfaceContainerHighest
 )
 
 @Composable
 fun CurrentsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
