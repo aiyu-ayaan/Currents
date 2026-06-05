@@ -104,9 +104,11 @@ fun CurrentsTheme(
         else -> LightColorScheme
     }
 
+    val typography = if (darkTheme) LuminaDarkTypography else LuminaLightTypography
+
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = typography,
         content = content
     )
 }
