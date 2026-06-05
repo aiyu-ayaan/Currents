@@ -1,4 +1,4 @@
-package com.atech.currents.ui.theme
+package com.atech.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
