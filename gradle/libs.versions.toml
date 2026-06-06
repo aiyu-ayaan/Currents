@@ -17,6 +17,7 @@ navigation = "2.0.21"
 navigationSerialization = "1.7.3"
 material3IconsExtended = "1.7.8"
 room = "2.8.4"
+material3 = "1.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
