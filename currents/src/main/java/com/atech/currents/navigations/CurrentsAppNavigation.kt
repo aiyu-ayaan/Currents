@@ -6,6 +6,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.atech.core.data.local.pref.PrefKey
+import com.atech.currents.ui.activities.main.LocalPrefProvider
+import com.atech.currents.ui.screens.base.CurrentsNavigationBaseScreen
 import com.atech.currents.ui.screens.login.LoginScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
@@ -16,40 +19,46 @@ import kotlin.reflect.KClass
 // routes for nested navigation
 @Serializable object Currents
 
-// routes for nested navigation Currents
-@Serializable object Dashboard
-@Serializable object Expense
-@Serializable object Links
-@Serializable object Profile
-
 @Composable
 fun CurrentsAppNavigationEntry(
     modifier: Modifier = Modifier,
     navHostController: NavHostController,
     startDestination: KClass<*> = LogIn::class
 ) {
+    val pref = LocalPrefProvider.current
     NavHost(
         modifier = modifier,
         navController = navHostController,
         startDestination = startDestination
     ) {
         composable<LogIn>{
-            LoginScreen()
+            LoginScreen{
+                pref.put(PrefKey.IsLogInSkipped, true)
+                navHostController.navigate(Currents) {
+                    popUpTo(LogIn) {
+                        inclusive = true
+                    }
+                }
+            }
         }
 
-        navigation<Currents>(startDestination = Dashboard) {
-            composable<Dashboard> {
-                // to navigate use navController.navigate(Expense)
-            }
-            composable<Expense> {
-                // to navigate use navController.navigate(Links)
-            }
-            composable<Links> {
-                // to navigate use navController.navigate(Profile)
-            }
-            composable<Profile> {
-                // to navigate use navController.navigate(Dashboard)
-            }
+        composable<Currents>{
+            CurrentsNavigationBaseScreen()
         }
+
+//        navigation<Currents>(startDestination = Dashboard) {
+//            composable<Dashboard> {
+//                // to navigate use navController.navigate(Expense)
+//            }
+//            composable<Expense> {
+//                // to navigate use navController.navigate(Links)
+//            }
+//            composable<Links> {
+//                // to navigate use navController.navigate(Profile)
+//            }
+//            composable<Profile> {
+//                // to navigate use navController.navigate(Dashboard)
+//            }
+//        }
     }
 }

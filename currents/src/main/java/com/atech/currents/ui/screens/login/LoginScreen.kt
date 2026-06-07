@@ -30,6 +30,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.atech.core.data.local.pref.PrefKey
+import com.atech.currents.ui.activities.main.LocalPrefProvider
 import com.atech.ui.R
 import com.atech.ui.components.AppButton1
 import com.atech.ui.components.LoginButton
@@ -38,8 +40,12 @@ import com.atech.ui.theme.spacing
 
 @Composable
 fun LoginScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigationToAppNavigation : () -> Unit = { }
 ) {
+
+
+
     var isGoogleButtonLoading : Boolean  by remember { mutableStateOf(false) }
     var isGithubButtonLoading : Boolean  by remember { mutableStateOf(false) }
     Scaffold(
@@ -116,7 +122,7 @@ fun LoginScreen(
             AppButton1(
                 textId = R.string.skip,
             ){
-
+                navigationToAppNavigation()
             }
         }
     }

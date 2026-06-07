@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -87,7 +88,7 @@ fun AppButton1(
     textColor: Color = MaterialTheme.colorScheme.primary,
     onClick: () -> Unit = {}
 ) {
-    TextButton(onClick = {}) {
+    TextButton(onClick = onClick) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
@@ -99,7 +100,7 @@ fun AppButton1(
                     modifier = Modifier
                         .size(18.dp)
                         .padding(end = MaterialTheme.spacing.medium),
-                    colorFilter = null
+                    colorFilter = ColorFilter.tint(textColor)
                 )
             } else if (imageVector != null) {
                 Image(
@@ -108,10 +109,13 @@ fun AppButton1(
                     modifier = Modifier
                         .size(18.dp)
                         .padding(end = MaterialTheme.spacing.medium),
-                    colorFilter = null
+                    colorFilter = ColorFilter.tint(textColor)
                 )
             }
-            Text(text = stringResource(id = textId))
+            Text(
+                text = stringResource(id = textId),
+                color = textColor,
+            )
         }
 
     }

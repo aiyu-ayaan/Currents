@@ -3,6 +3,7 @@ package com.atech.core.data.local.pref
 import android.content.SharedPreferences
 import javax.inject.Inject
 import androidx.core.content.edit
+import javax.inject.Singleton
 
 
 const val PREF_NAME = "CurrentsAppPref"
@@ -29,6 +30,7 @@ sealed class PrefKey<T>(
     )
 }
 
+@Singleton
 class PrefManager @Inject constructor(
     private val sharedPreferences: SharedPreferences
 ){
