@@ -5,8 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
-import com.atech.currents.ui.screens.login.LoginScreen
+import com.atech.currents.ui.screens.dashboard.DashboardScreen
+import com.atech.currents.ui.screens.expense.ExpenseScreen
+import com.atech.currents.ui.screens.links.LinksScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
@@ -35,13 +36,13 @@ fun UserNavigation(
     ) {
 
         composable<Dashboard> {
-            // to navigate use navController.navigate(Expense)
+            DashboardScreen()
         }
         composable<Expense> {
-            // to navigate use navController.navigate(Links)
+            ExpenseScreen()
         }
         composable<Links> {
-            // to navigate use navController.navigate(Profile)
+            LinksScreen()
         }
         composable<Profile> {
             // to navigate use navController.navigate(Dashboard)

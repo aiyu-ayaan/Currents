@@ -4,4 +4,7 @@
     <string name="login_with_github">Log in with Github</string>
     <string name="skip">Skip</string>
     <string name="signing_in">Signing in...</string>
+    <string name="Dashboard">Dashboard</string>
+    <string name="Expense">Expense</string>
+    <string name="Links">Links</string>
 </resources>

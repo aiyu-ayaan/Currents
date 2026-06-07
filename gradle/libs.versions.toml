@@ -1,4 +1,8 @@
 [versions]
+adaptive = "1.3.0-beta02"
+adaptiveLayout = "1.3.0-beta02"
+adaptiveNavigation = "1.3.0-beta02"
+adaptiveNavigation3 = "1.3.0-beta02"
 agp = "9.2.1"
 coreKtx = "1.19.0"
 junit = "4.13.2"
@@ -18,8 +22,13 @@ navigationSerialization = "1.7.3"
 material3IconsExtended = "1.7.8"
 room = "2.8.4"
 material3 = "1.4.0"
+material3AdaptiveNavigationSuite = "1.4.0"
 
 [libraries]
+androidx-compose-adaptive-navigation3 = { module = "androidx.compose.material3.adaptive:adaptive-navigation3", version.ref = "adaptiveNavigation3" }
+androidx-compose-adaptive-navigation = { module = "androidx.compose.material3.adaptive:adaptive-navigation", version.ref = "adaptiveNavigation" }
+androidx-compose-adaptive-layout = { module = "androidx.compose.material3.adaptive:adaptive-layout", version.ref = "adaptiveLayout" }
+androidx-compose-adaptive = { module = "androidx.compose.material3.adaptive:adaptive", version.ref = "adaptive" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -46,6 +55,7 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-pagination = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+androidx-compose-material3-adaptive-navigation-suite = { group = "androidx.compose.material3", name = "material3-adaptive-navigation-suite", version.ref = "material3AdaptiveNavigationSuite" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -67,7 +77,12 @@ compose = [
     "androidx-compose-material3",
     "androidx-compose-material3-icon-extended",
     "material",
-    "androidx-appcompat"
+    "androidx-appcompat",
+    "androidx-compose-adaptive-navigation3",
+    "androidx-compose-adaptive-navigation",
+    "androidx-compose-adaptive-layout",
+    "androidx-compose-adaptive",
+    "androidx-compose-material3-adaptive-navigation-suite"
 ]
 
 hilt-compose = [
