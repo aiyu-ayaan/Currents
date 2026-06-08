@@ -14,36 +14,37 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import com.atech.currents.navigations.Dashboard
-import com.atech.currents.navigations.Expense
-import com.atech.currents.navigations.Links
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.rememberNavBackStack
 import com.atech.currents.navigations.UserNavigation
+import com.atech.currents.navigations.UserNavigationRoutes
 import com.atech.ui.theme.CurrentsTheme
 
 
 enum class AppDestinations(
     @param:StringRes val resId: Int,
-    val imageVector: ImageVector
+    val imageVector: ImageVector,
+    val navKey: NavKey
 ) {
     DestinationDashboard(
         resId = com.atech.ui.R.string.Dashboard,
-        imageVector = Icons.TwoTone.Dashboard
+        imageVector = Icons.TwoTone.Dashboard,
+        navKey = UserNavigationRoutes.Dashboard
     ),
     DestinationExpense(
         resId = com.atech.ui.R.string.Expense,
-        imageVector = Icons.TwoTone.AttachMoney
+        imageVector = Icons.TwoTone.AttachMoney,
+        navKey = UserNavigationRoutes.Expense
     ),
     DestinationLinks(
         resId = com.atech.ui.R.string.Links,
-        imageVector = Icons.TwoTone.Link
+        imageVector = Icons.TwoTone.Link,
+        navKey = UserNavigationRoutes.Links
     )
 }
 
@@ -53,28 +54,12 @@ enum class AppDestinations(
 fun CurrentsNavigationBaseScreen(
     modifier: Modifier = Modifier
 ) {
-    val navController = rememberNavController()
-
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route
-
+    val backstack = rememberNavBackStack(UserNavigationRoutes.Expense)
     Scaffold(
         modifier = modifier,
         bottomBar = {
             BottomAppBar {
                 AppDestinations.entries.forEach { destination ->
-
-                    val selected = when (destination) {
-                        AppDestinations.DestinationDashboard ->
-                            currentRoute == Dashboard::class.qualifiedName
-
-                        AppDestinations.DestinationExpense ->
-                            currentRoute == Expense::class.qualifiedName
-
-                        AppDestinations.DestinationLinks ->
-                            currentRoute == Links::class.qualifiedName
-                    }
-
                     NavigationBarItem(
                         icon = {
                             Icon(
@@ -85,17 +70,17 @@ fun CurrentsNavigationBaseScreen(
                         label = {
                             Text(stringResource(destination.resId))
                         },
-                        selected = selected,
+                        selected = backstack.last() == destination.navKey,
                         onClick = {
                             when (destination) {
                                 AppDestinations.DestinationDashboard ->
-                                    navController.navigate(Dashboard)
+                                    backstack.add(UserNavigationRoutes.Dashboard)
 
                                 AppDestinations.DestinationExpense ->
-                                    navController.navigate(Expense)
+                                    backstack.add(UserNavigationRoutes.Expense)
 
                                 AppDestinations.DestinationLinks ->
-                                    navController.navigate(Links)
+                                    backstack.add(UserNavigationRoutes.Links)
                             }
                         }
                     )
@@ -110,8 +95,7 @@ fun CurrentsNavigationBaseScreen(
                     top = 0.dp
                 )
             ),
-            navHostController = navController,
-            startDestination = Dashboard::class
+            backStack = backstack
         )
     }
 }

@@ -11,12 +11,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.atech.core.data.local.pref.PrefKey
 import com.atech.core.data.local.pref.PrefManager
-import com.atech.currents.navigations.Currents
 import com.atech.currents.navigations.CurrentsAppNavigationEntry
-import com.atech.currents.navigations.LogIn
+import com.atech.currents.navigations.CurrentsAppNavigationRoutes
 import com.atech.ui.theme.CurrentsTheme
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
 
@@ -33,18 +31,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val navHostController: NavHostController = rememberNavController()
             CompositionLocalProvider(LocalPrefProvider provides prefManager) {
                 val startDestinationScreen = if (prefManager.get(PrefKey.IsLogInSkipped)) {
-                    Currents
+                    CurrentsAppNavigationRoutes.Currents
                 } else {
-                    LogIn
+                    CurrentsAppNavigationRoutes.LogIn
                 }
                 CurrentsTheme {
                     CurrentsAppNavigationEntry(
                         modifier = Modifier,
-                        navHostController = navHostController,
-                        startDestination = startDestinationScreen::class
+                        startDestination = startDestinationScreen
                     )
                 }
             }
