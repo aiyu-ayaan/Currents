@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Currents</string>
+    <string name="effortless_management_for_your_daily_workflows">Effortless management for your daily\nWorkflows</string>
     <string name="login_with_google">Log in with Google</string>
     <string name="login_with_github">Log in with Github</string>
     <string name="skip">Skip</string>
-    <string name="signing_in">Signing in...</string>
+    <string name="signing_in">Signing in…</string>
     <string name="Dashboard">Dashboard</string>
     <string name="Expense">Expense</string>
     <string name="Links">Links</string>

@@ -2,12 +2,10 @@ package com.atech.currents.ui.screens.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -30,8 +28,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.atech.core.data.local.pref.PrefKey
-import com.atech.currents.ui.activities.main.LocalPrefProvider
 import com.atech.ui.R
 import com.atech.ui.components.AppButton1
 import com.atech.ui.components.LoginButton
@@ -41,16 +37,15 @@ import com.atech.ui.theme.spacing
 @Composable
 fun LoginScreen(
     modifier: Modifier = Modifier,
-    navigationToAppNavigation : () -> Unit = { }
+    navigationToAppNavigation: () -> Unit = { }
 ) {
 
 
-
-    var isGoogleButtonLoading : Boolean  by remember { mutableStateOf(false) }
-    var isGithubButtonLoading : Boolean  by remember { mutableStateOf(false) }
+    var isGoogleButtonLoading: Boolean by remember { mutableStateOf(false) }
+    var isGithubButtonLoading: Boolean by remember { mutableStateOf(false) }
     Scaffold(
-        modifier = modifier.fillMaxSize( )
-    ) {paddingValues ->
+        modifier = modifier.fillMaxSize()
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
@@ -61,7 +56,7 @@ fun LoginScreen(
                 ),
             horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
 
-        ) {
+            ) {
             Image(
                 painter = painterResource(R.drawable.img_login_screen),
                 contentDescription = "Login Screen Image",
@@ -88,7 +83,7 @@ fun LoginScreen(
                 )
             }
             Text(
-                text = stringResource(com.atech.currents.R.string.app_name),
+                text = stringResource(R.string.app_name),
                 style = MaterialTheme.typography.headlineMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontWeight = FontWeight.Bold,
@@ -96,7 +91,7 @@ fun LoginScreen(
             )
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraSmall))
             Text(
-                text = stringResource(com.atech.currents.R.string.effortless_management_for_your_daily_workflows),
+                text = stringResource(R.string.effortless_management_for_your_daily_workflows),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = MaterialTheme.spacing.small),
@@ -107,7 +102,7 @@ fun LoginScreen(
                 iconId = R.drawable.ic_google,
                 textId = R.string.login_with_google,
                 isLoading = isGoogleButtonLoading
-            ){
+            ) {
                 isGoogleButtonLoading = !isGoogleButtonLoading
             }
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
@@ -115,13 +110,13 @@ fun LoginScreen(
                 iconId = R.drawable.ic_github,
                 textId = R.string.login_with_github,
                 isLoading = isGithubButtonLoading
-            ){
+            ) {
                 isGithubButtonLoading = !isGithubButtonLoading
             }
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
             AppButton1(
                 textId = R.string.skip,
-            ){
+            ) {
                 navigationToAppNavigation()
             }
         }

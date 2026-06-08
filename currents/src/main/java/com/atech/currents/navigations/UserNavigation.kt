@@ -6,7 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.atech.currents.ui.screens.dashboard.DashboardScreen
-import com.atech.currents.ui.screens.expense.ExpenseScreen
+import com.atech.currents.ui.screens.expense.base.ExpenseScreen
+import com.atech.currents.ui.screens.expense.details.ExpenseDetailsScreen
 import com.atech.currents.ui.screens.links.LinksScreen
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
@@ -22,6 +23,9 @@ object Links
 
 @Serializable
 object Profile
+
+@Serializable
+object ExpenseDetails
 
 @Composable
 fun UserNavigation(
@@ -41,6 +45,11 @@ fun UserNavigation(
         composable<Expense> {
             ExpenseScreen()
         }
+
+        composable<ExpenseDetails>{
+            ExpenseDetailsScreen()
+        }
+
         composable<Links> {
             LinksScreen()
         }

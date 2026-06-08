@@ -1,4 +1,4 @@
-package com.atech.currents.ui.screens.expense
+package com.atech.currents.ui.screens.expense.details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.atech.ui.theme.CurrentsTheme
 
 @Composable
-fun ExpenseScreen(
+fun ExpenseDetailsScreen(
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -19,7 +19,7 @@ fun ExpenseScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Expense Screen")
+        Text(text = "Expense Details Screen")
     }
 }
 
@@ -27,6 +27,6 @@ fun ExpenseScreen(
 @Composable
 private fun ExpenseScreenPreview() {
     CurrentsTheme() {
-        ExpenseScreen()
+        ExpenseDetailsScreen()
     }
 }

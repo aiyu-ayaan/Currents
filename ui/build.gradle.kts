@@ -29,6 +29,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.bundles.compose)
     testImplementation(libs.junit)

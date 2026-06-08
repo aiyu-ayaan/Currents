@@ -21,7 +21,7 @@ navigation = "2.0.21"
 navigationSerialization = "1.7.3"
 material3IconsExtended = "1.7.8"
 room = "2.8.4"
-material3 = "1.4.0"
+material3 = "1.5.0-alpha21"
 material3AdaptiveNavigationSuite = "1.4.0"
 
 [libraries]
@@ -42,7 +42,7 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3" }
 androidx-compose-material3-icon-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material3IconsExtended" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
